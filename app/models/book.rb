@@ -1,3 +1,4 @@
-class Book < Sequel::Model
+# frozen_string_literal: true
 
+class Book < Sequel::Model
 end
