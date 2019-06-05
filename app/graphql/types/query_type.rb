@@ -2,14 +2,13 @@
 
 module Types
   class QueryType < Types::BaseObject
-    # Add root-level fields here.
-    # They will be entry points for queries on your schema.
+    description 'root query'
 
     field :book, Types::BookType, null: true do
       description 'Find book by id'
       argument :id, ID, required: true
     end
-    field :books, Types::BookType, null: true do
+    field :books, [Types::BookType], null: true do
       description 'Get all books'
     end
 
@@ -19,6 +18,22 @@ module Types
 
     def books
       Book.all
+    end
+
+    field :author, Types::AuthorType, null: true do 
+      description 'Find author by id'
+      argument :id, ID, required: true
+    end
+    field :authors, [Types::AuthorType], null: true do
+      description 'get all authors'
+    end
+
+    def author(id:)
+      Author[id]
+    end
+
+    def authors
+      Author.all
     end
   end
 end
