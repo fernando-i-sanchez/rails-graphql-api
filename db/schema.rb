@@ -1,12 +1,12 @@
 Sequel.migration do
   change do
-    create_table(:author_tables) do
+    create_table(:authors) do
       primary_key :id
       column :name, "varchar(255)"
       column :age, "integer"
     end
     
-    create_table(:book_tables) do
+    create_table(:books) do
       primary_key :id
       column :name, "varchar(255)"
       column :genre, "varchar(255)"
