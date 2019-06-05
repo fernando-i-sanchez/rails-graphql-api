@@ -2,7 +2,7 @@
 
 Sequel.migration do
   change do
-    create_table :book_tables do
+    create_table :books do
       primary_key :id
       String :name
       String :genre
