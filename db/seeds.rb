@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'faker'
 
 # create 20 authors
@@ -10,17 +12,11 @@ end
 
 # associate books to author
 Author.all.each do |author|
-  if author.books.empty?
+  rand(1..5).times do
     Book.create(
       name: Faker::Book.title,
       genre: Faker::Book.genre,
       author_id: author.id
     )
-    next
   end
-  Book.create(
-    name: Faker::Book.title,
-    genre: Faker::Book.genre,
-    author_id: author.id
-  )
 end
